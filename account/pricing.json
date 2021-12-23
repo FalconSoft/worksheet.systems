@@ -1,1 +1,44 @@
-[]
+[
+	{
+		"pricingCode": "free-1",
+		"name": "Free Forever",
+		"pagesLimit": 1,
+		"appsLimit": 1,
+		"priceCcy": "£",
+		"price": 0,
+		"attributes": {
+			"readers": "Unlimited",
+			"collaborators": "Unlimited",
+			"dbCode": "db-schema-free-1",
+			"signupLabel": "Sign Up"
+		}
+	},
+	{
+		"pricingCode": "pro-1",
+		"name": "Pro",
+		"pagesLimit": 25,
+		"appsLimit": 3,
+		"priceCcy": "£",
+		"price": 40,
+		"attributes": {
+			"readers": "Unlimited",
+			"collaborators": "Unlimited",
+			"dbCode": "db-schema-pro-1",
+			"signupLabel": "Start 14 Days Trial"
+		}
+	},
+	{
+		"pricingCode": "premium-1",
+		"name": "Premium",
+		"pagesLimit": 100,
+		"appsLimit": 10,
+		"priceCcy": "£",
+		"price": 70,
+		"attributes": {
+			"readers": "Unlimited",
+			"collaborators": "Unlimited",
+			"dbCode": "db-schema-premium-1",
+			"signupLabel": "Start 14 Days Trial"
+		}
+	}
+]
