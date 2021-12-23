@@ -11,7 +11,7 @@
 			"sample"
 		],
 		"referencePath": "/PublicData/NorthwindApp",
-		"defaultCodeFile": "?file=dashboard%2Fdashboard.page.xml",
+		"defaultCodeFile": "?file=home%2Fhome.page.xml",
 		"imageUrl": "assets/img/examples/northwind.png",
 		"icon": null,
 		"excerpt": "Northwind Traders is a fictions company invented by Microsoft for the purpose of demonstrating their database products, using the Northwind database. Originally Northwind database came out in 1997 with Microsoft Access in order to teach programmers how to use that application.",
