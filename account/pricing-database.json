@@ -1,1 +1,12 @@
-[]
+[
+	{
+		"pricingCode": "db-custom-1",
+		"name": "Custom Sql Database - S1",
+		"tablesLimit": 5,
+		"rowsLimit": 1000,
+		"viewsOrProcsLimit": 5,
+		"price": 0,
+		"priceCcy": "£",
+		"attributes": {}
+	}
+]
