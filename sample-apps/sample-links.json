@@ -18,25 +18,6 @@
 		"isCloneAllowed": true
 	},
 	{
-		"templateId": 9,
-		"name": "FuturesApp",
-		"title": "Futures App",
-		"templateType": 1,
-		"categories": [
-			"Finance"
-		],
-		"keywords": [
-			"Futures",
-			" Finance"
-		],
-		"referencePath": "/PublicData/Futures",
-		"defaultCodeFile": "?file=pages%2Fhome.page.xml",
-		"imageUrl": "assets/img/examples/futures.png",
-		"icon": null,
-		"excerpt": "Futures Data Explorer",
-		"isCloneAllowed": false
-	},
-	{
 		"templateId": 10,
 		"name": "CustomCRM",
 		"title": "Custom CRM Application ",
@@ -53,24 +34,6 @@
 		"icon": null,
 		"excerpt": "Custom CRM Application",
 		"isCloneAllowed": true
-	},
-	{
-		"templateId": 11,
-		"name": "Mexican_Hospitales",
-		"title": "Mexican Hospitales COVID-19",
-		"templateType": 1,
-		"categories": [
-			"sample"
-		],
-		"keywords": [
-			"map"
-		],
-		"referencePath": "/mex-vent/PMV-ITAM-C19",
-		"defaultCodeFile": "?file=home.page.xml",
-		"imageUrl": "assets/img/examples/MexicanHospitals.PNG",
-		"icon": "",
-		"excerpt": "Capacity in general care beds in Covid-19 Hospitals",
-		"isCloneAllowed": false
 	},
 	{
 		"templateId": 12,
@@ -124,24 +87,6 @@
 		"imageUrl": "assets/img/examples/carousel-image-02.jpg",
 		"icon": null,
 		"excerpt": "Worksheet Systems Examples",
-		"isCloneAllowed": true
-	},
-	{
-		"templateId": 16,
-		"name": "Plotly_Examples",
-		"title": "Plotly Examples",
-		"templateType": 1,
-		"categories": [
-			"sample"
-		],
-		"keywords": [
-			"plotly"
-		],
-		"referencePath": "/publicdata/plotly-examples",
-		"defaultCodeFile": "?file=plotly-samples%2F3d-surface-plot.jspy&run=preview",
-		"imageUrl": "assets/img/examples/carousel-image-02.jpg",
-		"icon": null,
-		"excerpt": "Plotly Examples",
 		"isCloneAllowed": true
 	}
 ]
