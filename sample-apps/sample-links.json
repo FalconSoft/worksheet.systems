@@ -88,5 +88,23 @@
 		"icon": null,
 		"excerpt": "Worksheet Systems Examples",
 		"isCloneAllowed": true
-	}
+	},
+	{
+		"templateId": 16,
+		"name": "TimeseriesChart",
+		"title": "Timeseries Chart",
+		"templateType": 1,
+		"categories": [
+			"sample"
+		],
+		"keywords": [
+			"worksheets"
+		],
+		"referencePath": "/publicdata/TimeseriesChart",
+		"defaultCodeFile": "?file=app.xml",
+		"imageUrl": "assets/img/examples/TimeseriesChart.png",
+		"icon": null,
+		"excerpt": "Timesearies chart loaded from AlphaVantage (https://www.alphavantage.co/)",
+		"isCloneAllowed": true
+	}	
 ]
