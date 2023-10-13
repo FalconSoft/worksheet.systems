@@ -10,7 +10,7 @@
 		"keywords": [
 			"sample"
 		],
-		"referencePath": "/@local/northwind-app",
+		"referencePath": "/falconsoft@github/worksheet-apps!main!northwind-app",
 		"defaultCodeFile": "?file=home!index.dcml",
 		"imageUrl": "assets/img/examples/northwind.png",
 		"icon": null,
@@ -28,7 +28,7 @@
 		"keywords": [
 			"worksheets"
 		],
-		"referencePath": "/@local/timeseries-chart",
+		"referencePath": "/falconsoft@github/worksheet-apps!main!timeseries-chart",
 		"defaultCodeFile": "?file=home!index.dcml",
 		"imageUrl": "assets/img/examples/TimeseriesChart.png",
 		"icon": null,
