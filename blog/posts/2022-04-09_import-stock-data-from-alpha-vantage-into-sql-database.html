@@ -1,0 +1,111 @@
+<p>In this post, we will go over a tutorial guide on how you can use WORKSHEETS Data Studio to import historical stock
+    data from Alpha Vantage API into the SQL database. We will cover 4 main topics
+<ul>
+    <li>How to use Alpha Vantage API to pull historical data</li>
+    <li>Transform raw data into a readable data format, ready to be stored into the database or exported into the Excel
+    </li>
+    <li>Create an SQL table and load stock data in the table
+    </li>
+    <li>Setup a Scheduled Task to run this daily</li>
+</ul>
+</p>
+<p>We will use WORKSHEETS Data Studio to cover all these topics above.</p>
+
+<h3>How to use Alpha Vantage API to pull historical data</h3>
+<p>Alpha Vantage provides enterprise-grade financial market data through a set of powerful and developer-friendly APIs.
+    From traditional asset classes (e.g., stocks and ETFs) to economic signals, from foreign exchange rates to
+    cryptocurrencies, from fundamental data to technical indicators, Alpha Vantage is your one-stop-shop for real-time
+    and historical global market data delivered through RESTful stock APIs
+</p>
+<p>If you explore <a href="https://www.alphavantage.co/documentation/#daily">Alpha Vantage API documentation</a>. You
+    will find out, that you can pull historical timeseries stock data with HTTP GET call:
+    <br /><br />
+    <a
+        href="https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo">https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo</a>
+
+    Create a new App/Project in WORKSHEETS Data Studio and add a new JSPython file and use httpGet method for it. Then,
+    press the RUN button to get the following results
+</p>
+
+<p>
+    <img class="w-100" alt="Data Engineering" src="assets/img/posts/import-av-data-01-http-get.png"
+        title="HTTP GET Alpha Vantage Historical Data">
+</p>
+
+<p>As you can see the output format is not necessarily the most convenient format that can be easily consumed by popular
+    tools like Excel</p>
+
+<h3>Transform raw data into a readable data format</h3>
+
+<p>Next, we will show how you can transform a raw Alpha Vantage stock data into a more readable format, which can be
+    stored in the SQL data table or imported into the Excel
+</p>
+<p>
+    <img class="w-100" alt="Data Engineering" src="assets/img/posts/import-av-data-02-transform.png"
+        title="Transform Alpha Vantage Historical Data">
+</p>
+<p>This JSPython script transformed Alpha Vantage historical stock data into a more readable format, which can be
+    exported into the Excel or SQL Database table</p>
+
+<h3>Create SQL table and load stock data in the table</h3>
+<p>
+    Before you can load data into the database, you have to have an existing database connection in your Worksheet
+    Systems account. <a href="https://docs.worksheet.systems/docs/online-sql-client/connect-to-sql-database">Here is
+        more info on how to do it</a>
+</p>
+<p>
+    <img class="w-100" alt="Save To Database" src="assets/img/posts/import-av-data-03-save.png"
+        title="Save To Database">
+</p>
+<p>
+    Then, on the top right corner of the result panel, there is a menu item `Save To Database`.Click it to open a Save
+    To Database dialog. Where you have to define:
+<ul>
+    <li>Table Name (make sure `Create New Table` checkbox is ON)</li>
+    <li>Set Primary Keys. In this particular case, We will make a `date` and `symbol` a primary keys</li>
+</ul>
+
+Then press `Upsert(merge) Data` button that will create a new SQL table and will load all data into the SQL database.
+</p>
+
+<h3>Setup a Scheduled Task to run this daily</h3>
+<p>
+    And last but not least step is to set up a Scheduled Task that will run this JSPython script daily. This step will
+    ensure your table is updated regularly and you have always up-to-date stock prices for your symbols. It is very easy
+    to do with WORKSHEETS Data Studio. All you have to do is press `Schedule Task` set a time you want to run and press
+    `Save` button.
+</p>
+<p>Before doing this, you have to make sure your scripts can work without any user interactions. So, we have to write a
+    JSPython script that will save historical data. Here is example:
+</p>
+<pre>
+    # stockData is an array of stock data items
+    sqlDataApi("SQL-Shared")
+        .save("test1.AVStockData", stockData)  
+</pre>
+
+<p>
+    Also, you have to grant permissions to the `ScheduledTasksRunner` user
+</p>
+<h3>And finally...</h3>
+<p>
+    Building robust and scalable data processing pipelines is always a challenging task and requires some level of
+    expertise. WORKSHEETS Data Studio makes it much easier for data engineers, analysts, and developers to build and
+    design sophisticated pipelines. Please feel free to contact us for <a
+        href="https://www.worksheet.systems/contact-us">any help, or assistance</a>. We are always ready to
+    help
+
+
+</p>
+
+<h3>Working example</h3>
+<p>A working example can be found here
+    <br />
+    <a
+        href="https://run.worksheet.systems/data-studio/app/PublicData/AlphaVantageDemo?file=etl-historical-stock-data.jspy">https://run.worksheet.systems/data-studio/app/PublicData/AlphaVantageDemo?file=etl-historical-stock-data.jspy</a>
+</p>
+<p>
+    <iframe height="850" class="w-100"
+        src="https://run.worksheet.systems/data-studio/app/PublicData/AlphaVantageDemo?file=etl-historical-stock-data.jspy"
+        title="WORKSHEETS Data Studio - Load Alpha Vantage historical data">
+</p>

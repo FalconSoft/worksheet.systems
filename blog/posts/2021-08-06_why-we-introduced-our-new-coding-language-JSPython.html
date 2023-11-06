@@ -1,0 +1,149 @@
+<p>I&rsquo;ve worked with a dozen programming languages during my career in software development.
+        Anything from Basic, Pascal, C* to Python, JavaScript, and more. And here we are, fast forward 25 years and
+        I had no other option than to invent another coding language. With all questions
+        asking, &lsquo;why?&rsquo;</p>
+<p>Do we want to learn another programming language? - No, Python is the most popular
+        language in the world</p>
+
+<p>Do we have time to rebuild libraries for all the needs? - No, JavaScript has huge
+        communities and a huge EcoSystem around it.</p>
+
+<p>We had a requirement to allow users to define custom logic at runtime safely. We
+        tried a JSON-based configuration, but, as complexities grew, that configuration became unmaintainable. Even
+        UI-based drag&rsquo;n drop interfaces become messy for bigger and more complex logic. And after a few failed
+        attempts I decided to build my interpreter and introduce a new coding language to the world. And syntax-wise
+        I choose to start with Python as it is the most familiar syntax among our target audience.</p>
+
+<p><a href="https://jspython.dev">JSPython
+        </a>is a python-like syntax interpreter implemented with javascript that runs entirely in
+        the web browser and/or in the NodeJS environment. It does not transpile/compile your code into JavaScript,
+        instead, it provides an interactive interpreter that reads Python-like code and carries out its
+        instructions. With JSPython you should be able to safely interact with any JavaScript libraries or
+        API&rsquo;s with the popular Python-like syntax.</p>
+
+<p>With JSPython you can use any JavaScript library with Python-like syntax. You can use
+        standard Javascript objects, arrays, callback functions, as well as build your custom logic with JavaScript
+        and expose it to JSPython users</p>
+<h2>Main advantages of JSPython</h2>
+<ul>
+        <li><b>Safe scripting environment.</b> You have full control over what
+                functions and libraries you expose to JSPython and allow users to use.</li>
+        <li><b>Works in a browser as well as offline on the server-side.</b> You can
+                integrate it easily with your web app in the browser and/or run jspy files offline with
+                jspython-cli in
+                the NodeJS environment</li>
+        <li><b>The python-like syntax.</b> Most of the language features (syntax,
+                indentation, and expressions) are mirrored from Python. Also, added a few extras like Multiline
+                lambdas,
+                Null coalescing, single line conditions, etc</li>
+        <li><b>Utilize the entire JavaScript ecosystem.</b> Leverage a massive
+                JavaScript ecosystem with Python scripting. You should be able to import and invoke any JS
+                function with
+                the Python syntax</li>
+        <li><b>Rapid Application Development.</b> The seamless interaction between
+                Python and JavaScript allows developers to enjoy the best of two worlds. And deliver business
+                solutions
+                much quicker and more reliably.</li>
+</ul>
+
+<h2>Where to start?</h2>
+<p>JSPython is an
+        <a href="https://github.com/jspython-dev/jspython">open source JavaScript library</a>&nbsp;with a permissive BSD
+        3-Clause License. Published to <a href="https://www.npmjs.com/package/jspython-interpreter">npm as
+                jspython-interpreter</a>
+</p>
+<h3>Run JSPython in your JavaScript App</h3>
+
+
+<p>
+<pre>npm install jspython-interpreter</pre>
+</p>
+
+<p>
+<pre>
+jsPython()
+  .evaluate('print("Hello World!")')            
+  .then(
+    r => console.log("Result => ", r),            
+    e => console.log("Error => ", error)            
+  )
+        </pre>
+
+</p>
+
+<h3>Run JSPython in NodeJS with JSPython-CLI</h3>
+
+<p>Use <a href="https://github.com/jspython-dev/jspython-cli">JSPython-cli</a><span>&nbsp;command
+                line tool what allows you to run JSPython in NodeJS environment</p>
+
+<p>
+<pre>jspython --file=path/to/jspython/file --param1=value --param</pre>
+</p>
+
+<h2>Any similar projects around?</h2>
+
+<p>Obviously, before committing to such a big endeavour I&rsquo;ve looked around for existing
+        libraries. The closest library is
+        <a href="https://skulpt.org">Skulpt</a>&nbsp;but
+        their API isn&rsquo;t flexible enough and we couldn&rsquo;t utilize our JavaScript libraries
+</p>
+
+<h2>Performance</h2>
+<p>Many people are asking about performance and maturity of the project. How does it
+        compare to Python performance-wise? </p>
+<p>Well, it is very comparable to CPython, mainly because CPython is quite slow :), while
+        Google&rsquo;s <a href="https://v8.dev">V8 JavaScript engine</a>&nbsp;is extremely optimized and
+        performant. You will find
+        that NodeJS will significantly outperform any CPython project. So, I can confidently say that JSPython
+        is fast enough to serve most of your custom workflow and behaviour logic. And is already used in several
+        performance critical production systems.</p>
+
+<h2>Coding playground</h2>
+<p>Check out our basic playground <a href="https://jspython.dev/playground">https://jspython.dev/playground</a>
+</p>
+<p>Or more advanced examples build with <a
+                href="https://run.worksheet.systems/data-studio/app/guest/jspy-playground?file=main.jspy">WORKSHEETS
+                Data Studio</a>
+</p>
+<div>
+        <iframe height="850" class="w-100"
+                src="https://run.worksheet.systems/data-studio/app/guest/jspy-playground?file=jspy-examples%2Fworking-with-arrays.jspy"
+                title="WORKSHEETS Data Studio - JSPython playground project">
+
+        </iframe>
+        <!-- <div class="d-none d-lg-block">
+                <iframe height="850" width="1000"
+                        src="https://run.worksheet.systems/data-studio/app/guest/jspy-playground?file=jspy-examples%2Fworking-with-arrays.jspy"
+                        title="WORKSHEETS Data Studio - JSPython playground project">
+
+                </iframe>
+        </div>
+
+        <div class="d-none d-sm-block d-lg-none">
+                <iframe height="850" width="750"
+                        src="https://run.worksheet.systems/data-studio/app/guest/jspy-playground?file=jspy-examples%2Fworking-with-arrays.jspy"
+                        title="WORKSHEETS Data Studio - JSPython playground project">
+
+                </iframe>
+        </div>
+
+
+        <div class="d-block d-sm-none">
+                <iframe height="850" width="380"
+                        src="https://run.worksheet.systems/data-studio/app/guest/jspy-playground?file=jspy-examples%2Fworking-with-arrays.jspy"
+                        title="WORKSHEETS Data Studio - JSPython playground project">
+
+                </iframe>
+        </div> -->
+</div>
+
+<h2>Worksheet Systems</h2>
+<p>
+        JSPython was build to power our low code data management platform - <a
+                href="https://worksheet.systems">Worksheet Systems</a>. Which allows anybody to build database
+        applications with ease, control and confidence.
+        JSPython is used as a primary low code language to define UI behaviours, validations, build data
+        transformational pipelines and much more.
+</p>
+<p>However, it is open source project with <a href="https://github.com/jspython-dev/jspython/blob/DEV-v2/LICENSE">a
+                permissive BSD 3-Clause License.</a>. So, feel free to adopt it into your own projects.</p>

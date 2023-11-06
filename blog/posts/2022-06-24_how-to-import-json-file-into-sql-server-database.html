@@ -1,0 +1,157 @@
+<p>The JSON format is very friendly for both people and for machines. In other words, it is very well structured for
+    people to read as well as you can parse it quickly with any programming language.</p>
+
+<p>
+    However, all important information is better stored in relational SQL databases. In relational databases, all
+    information is stored in tables, which consist of rows and columns. So, we will have to break down our JSON file
+    into rows and columns.
+</p>
+
+<p>
+    It is very easy to do with WORKSHEETS Data Studio. Just go to <a
+        href="https://run.worksheet.systems/data-studio/app/-guest-/-untitled-app?file=(new)-untitled-1.json">JSON
+        editor</a> and open the JSON file or paste a valid
+    JSON data into the editor.
+</p>
+
+<img class="w-100 my-2" alt="WORKSHEETS JSON Editor" src="assets/img/posts/import-json-to-sql-01.PNG"
+    title="WORKSHEETS JSON Editor">
+
+<p>
+    You will instantly see in a right-hand panel, that your JSON had been rendered into the data grid which has a table
+    structure. Each element from an array is a row and each property is a column. Any nested objects are kept in a valid
+    JSON format.
+</p>
+
+<p>
+    Please note. You have to have a valid SQL connection
+</p>
+
+<p>So, we are ready to save this to the database. Press the `Save To Database` menu item. Choose
+
+<ul>
+    <li>SQL Connection, schema, tableName.</li>
+    <li>Make sure field mapping is correct </li>
+    <li>Choose the primary key</li>
+</ul>
+</p>
+
+<img class="w-100 my-2" alt="Save To Database" src="assets/img/posts/import-json-to-sql-02.PNG"
+    title="Save To Database">
+<p>
+    and you are ready to save.
+</p>
+<p>
+    We have 3 ways to save :
+<ul>
+    <li><b>Upsert / Merge</b> - So, it will insert or update rows in your table, based on a primary key(s). this is the
+        default
+        way and will work well in most cases.</li>
+    <li><b>Append</b> - it will append only your data. A bit more performance optimized</li>
+    <li><b>Bulk Insert</b> - it delivers the best performance. But, you will have to ensure data integrity</li>
+</ul>
+In a bit more advanced scenarios you may want to change the structure of your
+</p>
+
+<h2>Use JSPython to save JSON Data to SQL Database</h2>
+
+<p>
+    If you need more flexibility and control, you can use JSPython to import your data. You can use <a
+        href="https://github.com/FalconSoft/sql-data-api-client-js#saving-data">SQL Data Api</a> library
+    to save. Also, you can save JSON to Worksheets Data Studio project and then import it into a jspy file for further
+    processing
+</p>
+
+<img class="w-100 my-2" alt="SQL Data Api" src="assets/img/posts/import-json-to-sql-03.PNG" title="SQL Data Api">
+
+<h2>Open JSON file and process it</h2>
+<p>You can use `openFileAsArray` function </p>
+
+<pre>
+    openFileAsArray()
+</pre>
+
+<h2>Transform JSON Data</h2>
+
+<p>You can save JSON data in the projects and then import it into JSPython </p>
+<pre>
+# transform object if needed
+fileData = openFileAsArray()
+ 
+return fileData.data.map(r =>
+    r.fileName = fileData.fileName
+    r.date = dateTime(r.date)
+    r.avg = (r.high + r.low)/2
+    return r
+  )
+</pre>
+
+<h2>Save Data To SQL</h2>
+<pre>
+# Welcome to JSPython (https://jspython.dev)
+ 
+from sql-data-api import sqlDataApi
+ 
+fileData = openFileAsArray()
+ 
+items = fileData.data
+  .map(r =>
+    r.fileName = fileData.fileName
+    r.date = dateTime(r.date)
+    r.avg = (r.high + r.low)/2
+    return r
+  )
+ 
+sqlDataApi('public-data-connect').save('publicData.table2Ex', items)
+</pre>
+
+<h2>Importing large JSON file</h2>
+<p>We do not recommend storing/loading large JSON files, because your browsers will run out of memory and crash. The
+    previous article demonstrated how you can <a
+        href="https://www.worksheet.systems/blog/how-to-open-and-analyse-large-json-file-online">work with large JSON
+        files</a>. In this article, I will show you how you can
+    import large JSON files into smaller chunks.</p>
+<p>Here is a JSPython:</p>
+
+<pre>
+from sql-data-api import sqlDataApi
+
+async def saveItemsToDatabase(items, fileName):
+    #add fileName for each element
+    items = items.map(r => Object.assign({fileName}, r))
+    
+    # save it to the database
+    res = sqlDataApi('connectionName').save('schema.tableName',items)
+    print(res)
+    
+    
+    return openFileAsArray({
+        chunkProcessor: saveItemsToDatabase
+    }).data
+    
+</pre>
+
+<p>As in a previous example, we use the `openFileAsArray` function. Where we define a `chunkProcessor` function, which
+    uses `sql-data-api` to save items to the database. Meanwhile, as in this example, we are transforming elements and
+    adding the fileName field.</p>
+
+<p>
+    Before running this code, you have to have SQL Connection defined and which has a table with a conforming structure.
+    If you are running a large file, you can always open the first 1000 (or 10000) rows and use the `Save To Database`
+    functionality to create a new table with all fields. Please make sure that varchar length and datatype can
+    accommodate all rows in a file
+</p>
+
+<h2>Video tutorial</h2>
+
+
+<div style="width: 100%;">
+    <iframe width="100%" height="580" src="https://www.youtube.com/embed/ysxOEVfHz0E" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+</div>
+
+<h2>WORKSHEETS Data Studio</h2>
+
+<p>WORKSHEETS Data Studio is a low-code data management studio which makes it easy to work with different kinds of files
+    and we have straightforward processes to load JSON data into the database</p>

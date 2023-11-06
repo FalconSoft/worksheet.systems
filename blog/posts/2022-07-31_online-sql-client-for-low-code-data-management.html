@@ -1,0 +1,174 @@
+<p>There are many good tools to access and work with relational databases. My favourite ones were MS SQL Management
+    Studio and Azure Data Studio. However, several features can make exploring, analysing and working with SQL databases
+    much better and easier.</p>
+<p>We wanted to go a bit further, beyond a SQL query, beyond simple views or CRUD operations. We wanted to give people
+    tools to leverage SQL robustness and power to allow anybody with fundamental data engineering skills (like citizen
+    developers, business analysts, data analysts and even business people) a low code platform to make robust data
+    management tasks much more straightforward.</p>
+<p>We've introduced an online SQL client as a core part of WORKSHEETS Data Studio - our low code data management
+    platform. Keeping your data in the database is fundamental to any data-centric IT solution.</p>
+<p>WORKSHEETS Data Studio can be accessed in your browser straight away. So, to get started, you don't need anything to
+    install.</p>
+
+<h2>Short video intro</h2>
+
+<div style="width: 100%;">
+    <iframe width="100%" height="580" src="https://www.youtube.com/embed/cm56EZ-5bFc" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+</div>
+
+<p> We have apparent features, like a tree with data objects, SQL editor with auto-complete, a result panel and
+    everything else you can find in other conventional RMDB tools. However, I would like to highlight the following
+    features:
+</p>
+
+<h2>Share and Collaborate</h2>
+
+<p>Since WORKSHEETS Data Studio is a web (browser-based) tool, sharing and collaboration are native features. You can
+    create appealing user stories and share them with the world with a single URL. A URL contains all your filters,
+    sorting and columns and makes it very useful when you want to share a link. This will allow other people to see the
+    same information as you see it. In addition, you can permit access to your database for individual users and groups
+    or even grant public access.</p>
+
+<h2>Easily navigate and search</h2>
+<p>VSCode-inspired WORKSHEET Data Studio layout, and you'll find a lot of similarities, e.g. Tabs, Sidebar etc. However,
+    the most incredible feature is a search box. A single textbox where you can find and navigate to any database object
+    (table/view/stored procedure) within all databases you are connected to. So you don't have to click and scroll
+    anymore. Just type in whatever you are looking for
+</p>
+
+<h2>Data Visualization and Data Analysis</h2>
+<p>
+    Once you have found your table/view, you can see data in the excel-like data grids and even plot charts for quick
+    exploratory data analysis and modifications.
+</p>
+
+<h3>Excel-like filter for each column.</h3>
+<p>By default, we are showing only the first 1000 rows (you can remove this restriction). So, you can use your filters
+    for each column. Here are two useful features:
+<ul>
+    <li>A unique list of values</li>
+    <li>You can workout either this column is unique or not
+    </li>
+</ul>
+
+<p>
+    All filters added up and a summary is shown in the bottom left corner
+</p>
+<p>
+    <img class="w-100" alt="SQL Data Api Components diagram" src="assets/img/posts/online-sql-client-02.PNG"
+        title="SQL Data Api Components diagram">
+<p>From the picture above, you can tell that the table SampleSupersureSales has 8,399 rows. And you can see 821 rows
+    WHERE Customer Segment is 'Small Business' or 'Consumer' and Product Category equal 'Technology'. Also, from the
+    header filter (like in excel), you can find a breakdown of 21 countries.
+</p>
+</p>
+</p>
+
+<h3>Join tables together</h3>
+<p>We know how important it is to combine pieces of information and get a holistic data view. You can effortlessly join
+    or extend tables even if you don't have DDL access. Just use a visual editor. Then effortlessly share with your
+    colleagues or customers with a simple URL
+</p>
+<p>
+    You can use a visual Query Manager to join tables/views, select columns from a joined table and specify field
+    expressions if needed.
+</p>
+<p>
+    <img style="max-width: 100%" alt="Query Manager" src="assets/img/posts/online-sql-client-03.PNG"
+        title="Query Manager">
+</p>
+
+<p>
+    Then, from the visual query designer, you can generate SQL Query or JSPython code with SQL-Data-API.</p>
+<p>
+    <img style="max-width: 100%" alt="Context Menu" src="assets/img/posts/online-sql-client-04.PNG"
+        title="Context Menu">
+</p>
+<p>
+    Generated SQL Code will look like
+</p>
+
+<p>
+    <img class="w-100" alt="Generated SQL Code" src="assets/img/posts/online-sql-client-05.PNG"
+        title="Generated SQL Code">
+</p>
+<p>Or you can easily plot any table data into a graph for better visibility and storytelling.</p>
+<p>
+    <img class="w-100" alt="Graph Data" src="assets/img/posts/online-sql-client-06.PNG" title="Graph Data">
+</p>
+
+<h3>Linked Views</h3>
+<p>
+    Joining, filtering and customising your data is an essential data exploration practice. However, sometimes you need
+    to provide a comprehensive view of data. So, you can filter data in the connected views in other browsers.
+</p>
+<p> <img class="w-100" alt="Linked Views" src="assets/img/posts/online-sql-client-07.PNG" title="Linked Views">
+</p>
+<p>
+    This picture shows that the left-side browser can control/filter data in 3 other browsers. This everyday use case
+    explores master details data or other dependencies.
+</p>
+
+<h2>Import from excel or files</h2>
+<p>As part of WORKSHEETS Data Studio, you can leverage a low code programming language, JSPython or several UI tools to
+    comprehensively import data from files or other systems and map them to the table fields.</p>
+
+<h2>Access your Database via REST API</h2>
+<p>Your SQL Database will be available through RESTfull API for better integration. In addition, we have open source
+    libraries for JSPython, JavaScript, C# and Python.
+</p>
+<p> <img class="w-100" alt="SQL Data Api Components diagram" src="assets/img/posts/online-sql-client-01.PNG"
+        title="SQL Data Api Components diagram">
+</p>
+<p>
+    SQL Data API is a central access point to control access to your databases through a REST API (https). Here is a <a
+        href="https://github.com/FalconSoft/sql-data-api-client-js"> SQL Data Api JavaScript client</a> or <a
+        href="https://run.worksheet.systems/data-studio/app/PublicData/SqlDataApiTesting?file=app.jspy"> JSPython test
+        harnesses</a>
+</p>
+
+<h2>Role-Based Access Control</h2>
+<p>On top of existing SQL Security, we add another layer to securely control access to your database for authorised
+    users or public access.</p>
+
+<h2>In the cloud or on-premise</h2>
+<p>The Enterprise version is available for your own servers or in a private/public cloud.</p>
+
+<h2>One tool many databases</h2>
+<p>We are aiming to support all relational databases. We currently have the full support of MS SQL, AzureSQL and
+    PostgreSQL (beta). But, we are going to add MySQL, Oracle etc.</p>
+
+<h2>SQL Data-Driven Workflow</h2>
+<p>Automate and streamline SQL Data-Driven Workflow and custom ETL pipelines.</p>
+
+<h2>Excel plug-in</h2>
+<p><a href="https://appsource.microsoft.com/en-gb/product/office/WA104381608?tab=Overview">WORKSHEETS Data Studio
+        AddIn</a> provides a flexible and controlled way to access and store your spreadsheet data to and from SQL
+    Database
+</p>
+
+<h2>How can I use WORKSHEETS Data Studio</h2>
+<p>
+<ul>
+    <li><a href="https://run.worksheet.systems">Online (run.worksheet.systems).</a> Just type in run.worksheet.systems
+        and you can access any private or public database. Works well with
+        AzureSQL, AWS SQL Google cloud SQL</li>
+    <li><a href="https://chrome.google.com/webstore/detail/worksheets-data-studio/dkhnlgcpdiifkfjdjceogenclkdfbonh">Chrome
+            Extention.</a> Same things, just delivered as a chrome-extention</li>
+    <li><a href="https://worksheet.systems/contact-us"> Enterprise.</a> You can have your own version of WORKSHEETS Data
+        Studio behind your firewalls, complied with your
+        security policies etc.</li>
+</ul>
+
+You can try <a
+    href="https://docs.microsoft.com/en-us/azure/azure-sql/database/free-sql-db-free-account-how-to-deploy?view=azuresql">
+    Azure SQL Database free with Azure free
+    account</a>
+</p>
+
+<h2>Conclusion</h2>
+<p>WORKSHEETS Data Studio simplifies your day to day data management tasks. And makes working with SQL databases with
+    ease, control and confidence.
+</p>

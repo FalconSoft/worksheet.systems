@@ -1,0 +1,182 @@
+<p>After spending many years working for the financial services industry in various positions inside
+  custom software development teams. I realized that the main pain point is a lack of rapid data management tools,
+  making it easy for anyone to store information, visualise their data and automate workflows from a single
+  place</p>
+
+<p>Quite often, custom software teams can&rsquo;t cope &nbsp;with ever changing
+  requirements. As a result, business users (usually tech savvy) turn to Excel, some bits of Python and SQL in order
+  to automate and improve their data management workflows. With respect to the business users we worked with, most
+  of them are super smart and intelligent people, they don&rsquo;t know how to write maintainable, well architected,
+  robust and scalable software. That is why their excel &ldquo;systems&rdquo; always fall short. And over time,
+  these &ldquo;systems&rdquo; become unmaintainable, unreliable and often do not accurately produce vital
+  figures.</p>
+
+<p>The solution to the problem is a SQL centric low code data management platform that allows business users
+  and IT professionals&nbsp;to rapidly iterate and produce custom solutions in
+  a streamlined and scalable way.</p>
+
+<p>As a first step we started with improving tooling infrastructure around SQL server
+  databases. Making sure that anybody can easily access data, manage access controls and modify/load data easily
+  while maintaining data integrity and consistency.</p>
+
+<h2>Main links</h2>
+<ul>
+  <li><a href="https://run.worksheet.systems">Worksheet Systems App</a></li>
+  <li><a href="https://worksheet.systems/sample-apps">Sample Apps Gallery</a></li>
+  <li><a href="https://run.worksheet.systems/data-studio/app/guest/jspy-playground?file=main.jspy">JSPython Playground</a></li>
+  <li><a href="https://run.worksheet.systems/data-studio">Workseets Data Studio</a></li>  
+  <li><a href="https://docs.worksheet.systems/docs/intro">Docs (in progress)</a></li>  
+  <li><a href="https://run.worksheet.systems/docs/ui-components">UI Components documentation (in progress)</a></li>     
+</ul>
+
+<h2>Core components</h2>
+<p>The following components diagram depicts main Worksheet Systems parts
+</p>
+<p>
+  <img alt="Worksheet Systems Components diagram" src="assets/img/posts/ws-components-diagram.svg"
+    title="Worksheet Systems Components diagram">
+</p>
+
+<h3>SQL Data Api - RESTful API for data access and manipulation
+</h3>
+<p>SQL Data Api allows you to easily expose your SQL Server data over to internet /
+  intranet users. You can use RESTful API for data access and manipulation. This can be used for the sharing and
+  collaboration of any kind of data and is supported in a number of data-related applications and technologies. You
+  can permission other applications or custom workflow to consume your SQL Server with C#, Python, JavaScript open
+  source libraries</p>
+<ul>
+  <li><a href="https://github.com/FalconSoft/sql-data-api-client-Python">Source Code for Python SQL Data Api Client on
+      GitHub</a></li>
+  <li><a href="https://github.com/FalconSoft/sql-data-api-client-dotNet">Source Code for C# SQL Data Api Client on
+      GitHub</a></li>
+  <li><a href="https://github.com/FalconSoft/sql-data-api-client-js">Source Code for JavaScript SQL Data Api Client on
+      GitHub</a></li>
+</ul>
+
+
+
+<h3>JSPython - building custom workflows</h3>
+<p>Obviously, you can always drag &lsquo;n drop boxes around and build simple logic. But,
+  in no time you will hit a wall and your custom logic will become unmaintainable. To solve this, we created a
+  Python interpreter - <a href="https://jspython.dev">JSPython</a>. Your custom scripts can securely run in the browser,
+  and at the same time you can
+  run it server side with NodeJS. We choose Python&rsquo;s syntax as it is the most popular and friendly programming
+  language. And we combined it with a rich JavaScript ecosystem, So, you can call any JavaScript library with
+  Python-like syntax (including asynchronous promises, RxJS etc). Check out the open source project</p>
+<p><a href="https://github.com/jspython-dev/jspython">Source Code on GitHub</a></p>
+
+
+<h3>Data Visualization and UX</h3>
+<p>Although, we believe that user business users should be able to explore (if
+  permissioned) databases themselves. Sometimes, we need to give them a better user experience, like: interactive
+  dashboards that combine multiple data sources or more robust data collection / user input forms with build-in
+  validation and transformation logic. For that purpose, we&rsquo;ve built another open source library -
+  <a href="https://falconsoft.github.io/ngx-dynamic-components/">ngx-dynamic-components.</a> That eventually is bundled
+  with Bootstrap (the world&rsquo;s most popular front-end open
+  source toolkit) and JSPython.
+</p>
+<p>
+  <a href="https://github.com/FalconSoft/ngx-dynamic-components">Source Code on GitHub</a>
+</p>
+
+<h3>Data processing / Data wrangling</h3>
+<p>Although, JSPython exposes all array and object manipulation functions from JavaScript.
+  That wasn&#39;t enough. So, we created an open source library - <a href="https://datapipe-js.com/">datapipe-js</a>.
+  dataPipe-JS is a data manipulation
+  and data processing library for JavaScript. Inspired mainly &nbsp;from LINQ (C#) and Pandas (Python) and carefully
+  brought into the JavaScript world. This provides a powerful API for data loading, data transformation and other
+  helpful data manipulation functions.</p>
+<p><a href="https://github.com/FalconSoft/dataPipe">Source Code on GitHub</a></p>
+
+<h2>Worksheets Data Studio IDE and run-time</h2>
+
+<p>You should look at Worksheet Systems as of two parts:</p>
+
+<ul>
+  <li><b>Worksheets Data Studio</b> - is a developer friendly online IDE and a set of reusable open source
+    libraries for data engineers, business analysts or software developers. You can use our online IDE as well as VS
+    Code and &nbsp;keep your source code in the source control of your choice </li>
+  <li><b>Worksheet Systems - <i>run-time.</i></b> All
+    applications that you&rsquo;ve built with our low code data management platform, can run as a stand-alone web
+    app or scheduled batch job on a NodeJS server</li>
+</ul>
+
+<h2>Worksheets Data Studio - Online IDE</h2>
+<p>Worksheets Data Studio is your ultimate online IDE for all your data management tasks,
+  building custom apps and sharing/collaborating SQL databases. Core components being:</p>
+
+<h3>Online SQL Client </h3>
+<p>Connect to any of your SQL databases on-premises and in the cloud, Which enables multi
+  user collaboration, advanced querying, exploring and modifying data. That will allow you to:</p>
+<ul>
+  <li>Quickly find a database table/view/stored procedure of your
+    interest</li>
+  <li>Use advanced Excel-like data filters with useful information of rows
+    count, groups etc.</li>
+  <li>Create Custom Data Queries. You don&rsquo;t always want (or
+    don&rsquo;t have permissions) to create a SQL View, stored procedures or write complicated queries in the SQL
+    Server database. So, you can create a query and save it separately, share or collaborate with your friends,
+    colleagues or clients</li>
+  <li>We made modifying your data in the SQL table easy. We&rsquo;ve built
+    a number of useful features to modify data in your database. (e.g. bulk edit, foreign fields, import/merge from
+    excel etc)</li>
+  <li>Import data with a smart merge feature that ensures control and
+    consistency over your data</li>
+  <li>Once you connected to your database, you can consume your SQL through
+    a secure RESTFull service and we have built Python, C#, JavaScript or JSPython SQL Data Api clients for
+    you</li>
+  <li>Sharing and collaboration is as easy as passing a URL to your
+    colleague or client.</li>
+</ul>
+
+<h3>Custom Scripting</h3>
+<p>Use JSPython - a custom scripting language to process data, automate workflow or
+  integrate with other systems</p>
+<ul>
+  <li><b>Worksheets CLI</b> - command line interface to
+    work with Worksheet Systems content offline - VS Code or keep it in the source control (GitHub, Bitbucket
+    etc)</li>
+  <li><b>JSPython CLI</b> - command line interface torun your JSPython scripts in the NodeJS
+</ul>
+<h3>Custom Apps and Interactive Dashboards</h3>
+<p>Build interactive dashboards or input forms with our bootstrap based dynamic components
+  library.</p>
+<p>
+  <a href="https://worksheet.systems/sample-apps">Browse our Sample Apps Gallery</a>
+</p>
+
+<h2>Who should use it</h2>
+<p>Our audience usually falls into the following roles:</p>
+<ul>
+  <li><b>Software Developers.</b> There is no need to
+    follow ever changing JavaScript frameworks and tools. We&rsquo;ve got you covered. You can leverage well
+    documented Bootstrap based libraries for web design and layout and use JSPython scripting facilities for your
+    data processing and custom workflow development</li>
+  <li><b>Data Analysts / Business Analysts.</b> We offer a
+    rich set of exploratory data analysis features to stay on top of your data engineering workload</li>
+  <li><b>Business Users.</b> We enable those who deeply
+    understand business processes and workflows to contribute (or even build themselves) to the custom data
+    management solutions. There is no need to understand underlying technologies when you need to craft an
+    interactive dashboard or create a custom input form that fits well into your particular workflow, and share to
+    collaborate. Or, you can simply benefit from the exploratory data analysis features we offer</li>
+</ul>
+
+<h2>Issues &amp; Features requests</h2>
+<p>If you find any issues while working with a system, we&rsquo;d love to hear from you.
+  To report bugs or send feedback, please submit a new issue here: </p>
+
+<p>
+  <a href="https://github.com/FalconSoft/worksheet.systems/issues"> Worksheet Systems Issues</a>
+</p>
+
+<p>Or simply e-mail to info_at_worksheet.systems</p>
+<h2>Professional Services and support</h2>
+<p>Worksheet Systems is designed, built and supported by FalconSoft. Falconsoft Ltd is a
+  London based IT services company which offers professional services to help businesses achieve their enterprise
+  architecture efficiency goals. Using FalconSoft&rsquo;s expertise and unique software tools, businesses are able
+  to gain control of their internal and external information, streamline data management processes and derive
+  optimal returns from their enterprise IT investments.</p>
+<h2>Enterprise level - on-premise installation</h2>
+<p>With our enterprise offerings you can enjoy an entire low code data management platform
+  behind your firewalls, integrated with your security (Office 365 or Google Identity). So, you decide who should
+  see what and how to optimize hardware for each particular workflow. </p>

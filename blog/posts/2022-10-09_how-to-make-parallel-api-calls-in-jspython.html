@@ -1,0 +1,162 @@
+<p>
+    It is quite a common scenario when you have to make multiple an API calls in parallel. Making parallel calls will
+    reduce the latency and improve the performance of your solution. Either you are looking to speed up a data loading
+    process
+    or perform some sort of load/stress testing. <br />
+</p>
+<p>In Javascript, you can spin up multiple `Promises` and then use the function <a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all"
+        target="blank">Promise.all()</a>
+    to wait for all of them to succeed. Or you can use RxJS, streams or controlled callbacks</p>
+<p>
+    <a href="https://www.jspython.dev/" target="blank">JSPython</a> was designed to evaluate all instructions
+    synchronously.
+
+    Mainly because of simplicity, it looks like Python users - data engineers and analysts don't like the complexity
+    that comes with <i>Promises</i>, <i>Streams</i>
+    or <i>callbacks</i>.
+    JSPython awaits/resolves all promises at its core. So, you won't have any <i>Promise</i> anywhere in the JSPython
+    runtime
+    (apart from some edge cases).
+</p>
+<p>
+    So, how to run code parallel, then?<br /> The answer is <a href="https://rxjs.dev/guide/overview"
+        target="blank">RxJs</a>. You can
+    use RxJs functions to
+    create observable sequences, then combine response values they emitted (with forkJoin) and convert them back to
+    <i>Promise</i> (which will be automatically evaluated in JSPython)
+</p>
+
+
+<p>The following JSPython code shows this approach in action. This example makes five parallel requests and returns an
+    array of responses along with the corresponding requestId</p>
+<pre>
+    from 'rxjs' import forkJoin, lastValueFrom, map
+
+    ids = [2, 7, 4, 9, 5]
+
+    httpRequests$ = ids
+        .map(
+            requestId => httpRequest$("GET", "https://jsonplaceholder.typicode.com/posts/" + requestId)
+                                                .pipe(
+                                                    map(r => {requestId, response: r.data})
+                                                )
+        )
+
+    return lastValueFrom(forkJoin(httpRequests$))        
+</pre>
+
+<p>Let's go through the code.</p>
+<ol>
+    <li>Import RxJs functions</li>
+    <li>Create an array of <i>ids</i>.</li>
+    <li>Use <a href="https://www.w3schools.com/jsref/jsref_map.asp">map function</a> to transform an array of <i>ids</i>
+        into
+        an array of Observables.</li>
+    <li>Use the <b>httpRequest$</b> function to fetch data from a server. The asynchronous <i>built-in</i> function
+        sends an HTTP request, and returns an Observable
+        that emits the requested data when the response is received.</li>
+    <li>Then we use <a href="https://www.learnrxjs.io/learn-rxjs/operators/transformation/map"
+            target="blank">observable's
+            pipe(map(...))</a> and transform result, by adding a requestId and response
+    </li>
+
+    <li>Then we wait for all observables to complete and combine responses in the array. We use <a
+            href="https://www.learnrxjs.io/learn-rxjs/operators/combination/forkjoin" target="blank">forkJoin</a> for
+        this</li>
+
+    <li>Then convert observable into <i>Promise</i> with function <a
+            href="https://rxjs.dev/api/index/function/lastValueFrom" target="blank">lastValueFrom</a>. Then, JSPython
+        natively resolves
+        <i>Promise</i> into a synchronous result
+    </li>
+</ol>
+
+<h3>Run</h3>
+<p>Press `Run` and you will see the result</p>
+<p>
+    <img style="max-width: 100%" alt="Execution result in WORKSHEETS Data Studio"
+        src="assets/img/posts/multiple-api-calls-in-parallel-01.PNG"
+        title="Execution result in WORKSHEETS Data Studio" />
+</p>
+
+<h3>Working example</h3>
+<p>A working example can be found here
+    <br />
+    <a href="https://run.worksheet.systems/data-studio/app/guest/jspy-playground?file=http-calls%2Fparallel-http-requests.jspy"
+        target="blank">https://run.worksheet.systems/data-studio/app/guest/jspy-playground?file=http-calls%2Fparallel-http-requests.jspy</a>
+    <br>
+    or if you are using chrome extention <br>
+    <a href="chrome-extension://dkhnlgcpdiifkfjdjceogenclkdfbonh/index.html#/data-studio/app/guest/jspy-playground?file=http-calls%2Fparallel-http-requests.jspy"
+        target="blank">
+        chrome-extension://dkhnlgcpdiifkfjdjceogenclkdfbonh/index.html#/data-studio/app/guest/jspy-playground?file=http-calls%2Fparallel-http-requests.jspy
+    </a>
+</p>
+<p>
+    <iframe height="850" class="w-100"
+        src="https://run.worksheet.systems/data-studio/app/guest/jspy-playground?file=http-calls%2Fparallel-http-requests.jspy"
+        title="WORKSHEETS Data Studio - How to make a parallel http calls">
+    </iframe>
+</p>
+
+<h2>Sequential vs. Parallel API Calls</h2>
+
+<p>
+    In another example, I want to show two different functions where one of them <b>run_Sequential</b> is making https
+    requests
+    sequential and function <b>run_Parallel</b> is doing same things
+    but in parallel
+</p>
+
+<pre>
+    from 'rxjs' import forkJoin, lastValueFrom, map
+
+    ids = [2, 7, 4, 9, 5]
+    
+    async def run_Sequential():
+        data = []
+    
+        for requestId in ids:
+            response = httpGet("https://jsonplaceholder.typicode.com/posts/" + requestId)
+            data.push({requestId, response})
+    
+        return data
+    
+    async def run_Parallel():
+        httpRequests$ = ids
+            .map(
+                requestId => httpRequest$("GET", "https://jsonplaceholder.typicode.com/posts/" + requestId)
+                                                    .pipe(
+                                                        map(r => {requestId, response: r.data})
+                                                    )
+            )
+    
+        return lastValueFrom(forkJoin(httpRequests$))
+       
+    if __env.entryFunction == '':
+        return {
+                sequential: run_Sequential(),
+                parallel: run_Parallel()
+            }
+    
+</pre>
+
+<p>
+    Working example
+    is here <a
+        href="https://run.worksheet.systems/data-studio/app/guest/jspy-playground?file=http-calls%2Fsequential-vs-parallel-http-calls.jspy"
+        target="blank">
+        https://run.worksheet.systems/data-studio/app/guest/jspy-playground?file=http-calls%2Fsequential-vs-parallel-http-calls.jspy</a>.
+    <br />
+    Just <b>Run</b> this code and open chrome dev-tools - <b>network</b> tab. Where you can clearly see the difference
+</p>
+<p>
+    <img style="max-width: 100%" alt="Waterfall diagram from dev-tools"
+        src="assets/img/posts/multiple-api-calls-in-parallel-02.PNG" title="Waterfall diagram from dev-tools" />
+</p>
+
+<h2>WORKSHEETS Data Studio</h2>
+<p>
+    WORKSHEETS Data Studio is a Low Code Data Management Platform for Data Analysis, Data Processing, SQL Database
+    Management and RAPID App Development.
+</p>

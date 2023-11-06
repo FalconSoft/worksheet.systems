@@ -1,0 +1,184 @@
+<p>The main issue with large files is that we can’t load them entirely into the memory. It is easy to get
+    `out-of-memory` error and crash. And obviously all JSON parsers in all languages will run `out-of-memory` exception
+    in no time. Any file larger than 100M is difficult and in most cases impossible to analyse.
+</p>
+<p>JSON is a popular text-based format in the industry. Which represents a structured data based object. It is commonly
+    used for transmitting data in web applications (e.g., sending some data from the server to the client, so it can be
+    displayed on a web page, or vice versa)</p>
+<p>Also, it works well with <a href="https://docs.servicestack.net/jsv-format" target="blank">JSV format</a> - JSV Text
+    Format (JSON +
+    CSV) is a text-based format developed by ServiceStack
+    team and is optimized for both size and speed.</p>
+
+<p>So, our goal here is to demonstrate you how you can use WORKSHEETS Data Studio to process and analyse large JSON
+    files straight in your browser (tested with json files up to 4G).</p>
+
+<p>
+    As I mentioned before, we can’t afford to load the entire file into the memory. So, how are we going to analyse
+    then? There are a few tricks we can apply:
+<ul>
+    <li><b>Limit</b> result set to 100, 1000 or any other reasonable amount.</li>
+    <li>Get <b>distinct</b> values for one of the fields.</li>
+    <li><b>Apply filter</b> criteria and reduce element count.</li>
+    <li><b>Transform</b> each element and reduce the size you are loading.</li>
+</ul>
+</p>
+
+<p>
+    All these actions you can do in your browser with Worksheets Data Studio and no installations are required. You can
+    find it online: <a href="https://run.worksheet.systems" target="blank">https://run.worksheet.systems</a> or <a
+        href="https://chrome.google.com/webstore/detail/worksheets-data-studio/dkhnlgcpdiifkfjdjceogenclkdfbonh?hl=en"
+        target="blank">Chrome
+        Extension</a>
+</p>
+
+<p>
+    There are two ways you can process JSON files:
+<ol>
+    <li>Use JSON editor to open/process files</li>
+    <li>Use JSPython. It is a more advanced way of processing files. Where you can program more logic into it. You can
+        use
+        function `openFileAsArray` where you can choose file from the disk and parse data partially with all control you
+        need. Function `openFileAsArray` comes with following parameters:
+        <ul>
+            <li><b>take</b> and <b>skip</b> - specify how many items you want to take or to skip. This will allow you to
+                `page` big
+                JSON
+                file</li>
+            <li><b>distinct</b> - if the distinct field is defined, then the function will return unique values for this
+                field
+            </li>
+            <li><b>containsText</b> - filter results by searching text before parsing.</li>
+            <li><b>filterText</b> - a callback predicate function where you can have pre-parsed string and define filter
+                criteria</li>
+            <li><b>filter</b> - a callback predicate function where you can define filter criteria with parsed element
+                object
+            </li>
+            <li><b>map</b> - a callback function where you can define/changes result items</li>
+            <li><b>chunkSize</b> - define a chunk size we are processing at a time. By default it is 64 * 1024 * 1024
+                (64K)
+            </li>
+            <li><b>chunkProcessor</b> - a callback function where you can handle a parsed chunk of items. If this
+                function is
+                defined,
+                then we
+                will not return items. You will have to process a batch of items yourself. In one of the use cases, you can
+                save a batch of items to the database.</li>
+        </ul>
+    </li>
+</ol>
+</p>
+<p>Let's review all 4 use cases and I will demonstrate all available approaches:
+</p>
+
+<h2>Limit elements count</h2>
+<p>A good starting point is to look for a small number of elements, lets say you want to see only 1000 elements and
+    figure out the element’s structure and decide your future steps for analysis:</p>
+
+<h3>Use JSON editor in Worksheets Data Studio</h3>
+<p>Open <a href="https://run.worksheet.systems/data-studio/app/test1/-untitled-app?file=(new)-untitled-1.json"
+        target="blank">new blank JSON tab</a>
+</p>
+<p>
+    <img class="w-100" alt="Open JSON file partially" src="assets/img/posts/open-large-json-1.PNG"
+        title="Open JSON file partially">
+</p>
+<p>
+    In the top right corner, you will notice the button `Open File` and `Open file partially`. Where the first button will open and
+    load the entire JSON/JSV/CSV file into JSON Editor. And button `Open file partially` will open the following dialog,
+    which will allow you to work with large files
+</p>
+
+<img class="w-50 my-2" alt="Open file partially dialog" src="assets/img/posts/open-large-json-2.PNG"
+    title="Open file partially dialog">
+
+<p>
+    If you press `Open File` button. You will be able to see the first 1000 elements from your JSON file. This is very
+    helpful to analyze file structure and
+    decide on further analysis actions
+</p>
+<h3>Use JSPython</h3>
+
+<p>Alternatively, you can use JSPython editor and programmatically handle results. Function`openFileAsArray` will open
+    the same dialog and will return processed elements results for further data manipulations in JSPython.</p>
+
+<p>Here is an example</p>
+<p>
+
+<pre>
+# Welcome to JSPython (https://jspython.dev)
+
+data = openFileAsArray({
+    take: 1000
+    #skip: 1000
+}).data
+    
+# work with data array here
+    
+return data    
+</pre>
+
+</p>
+
+<h2>Get Distinct values</h2>
+<p>
+    After you’ve seen a file structure and the top 1000 elements in your JSON file. Next, you would be probably more
+    interested to see unique values for some of the fields. Let’s say, in our example, you would be interested to see
+    unique `Product_ID` in the file
+</p>
+<img class="w-50 my-2" alt="distinct values" src="assets/img/posts/open-large-json-5.PNG" title="Distinct values">
+
+<p>Or you can achieve the same result with JSPython code</p>
+
+<img class="w-100 m-2" alt="JSPython Distinct values with results" src="assets/img/posts/open-large-json-6.PNG"
+    title="JSPython Distinct values with results">
+
+<h2>Apply filter criteria</h2>
+
+<p>
+    And now, when you’ve seen a chunk of your JSON file and analysed unique values from this file. You should know
+    enough to filter and get whatever is needed for your analysis. <br />
+    Lets say you want to see only elements that contain the text `InterestRate:CrossCurrency:FixedFloat`. <br />Then you can specify in the dialog:
+</p>
+<img class="w-50 my-2" alt="Filter values" src="assets/img/posts/open-large-json-3.PNG" title="Filter values">
+<p>
+    Or with JSPython you can define a predicate function with more advanced filter criteria. you can add extra filter
+    criteria e.g. Action == 'CANCEL'
+</p>
+<img class="w-100 m-2" alt="Filter criteria with result" src="assets/img/posts/open-large-json-8.PNG"
+    title="Filter criteria with result">
+
+<h2>Transform results</h2>
+<p>One other way of reducing memory footprint is to remove some of the fields for each element. Especially, if some of
+    the fields are not important. This option is available only with JSPython code
+</p>
+<p>Here is JSPython example with filter callback and transformation map</p>
+<pre>
+openFileAsArray({
+    filter: r=> r.Product_ID == 'InterestRate:CrossCurrency:FixedFloat' and r.Action == 'CANCEL',
+    map: r =>
+        return {
+        id: r.Dissemination_ID,
+        effectiveDate: dateTime(r.Effective_Date.substring(0, 10)),
+        notional: r.Notional_Amount_1,
+        notionalCcy: r.Notional_Currency_1
+        }
+    }).data
+          
+</pre>
+<p>and eventually, results will look like</p>
+<img class="w-100 m-2" alt="Transform results" src="assets/img/posts/open-large-json-7.PNG" title="Transform results">
+
+<h2>Video tutorial</h2>
+
+<div style="width: 100%;">
+    <iframe width="100%" height="580" src="https://www.youtube.com/embed/j1ro4VJZoDA" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+</div>
+
+<h2>Conclusion</h2>
+<p>WORKSHEETS Data Studio simplifies working with large JSON files or even, sometimes, is the only option to view and
+    analyse large JSON file. However, the best way to analyze big files will be to load entire file into SQL database,
+    and then use SQL queries to analyze much more effectively. This is something we will show you how to do in the next
+    tutorial.</p>
