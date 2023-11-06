@@ -18,7 +18,7 @@
 		"isCloneAllowed": true
 	},
 	{
-		"templateId": 16,
+		"templateId": 2,
 		"name": "TimeseriesChart",
 		"title": "Timeseries Chart",
 		"templateType": 1,
@@ -33,6 +33,24 @@
 		"imageUrl": "assets/img/examples/TimeseriesChart.png",
 		"icon": null,
 		"excerpt": "Timesearies chart loaded from AlphaVantage (https://www.alphavantage.co/)",
+		"isCloneAllowed": true
+	},
+	{
+		"templateId": 3,
+		"name": "jspy-examples",
+		"title": "Jspy Examples",
+		"templateType": 1,
+		"categories": [
+			"sample"
+		],
+		"keywords": [
+			"worksheets"
+		],
+		"referencePath": "/falconsoft@github/worksheet-apps!main!jspy-examples",
+		"defaultCodeFile": "?file=index.dcml",
+		"imageUrl": "assets/img/examples/customCRM.png",
+		"icon": null,
+		"excerpt": "A collection of JSPython code examples in one project",
 		"isCloneAllowed": true
 	}	
 ]
