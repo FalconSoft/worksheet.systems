@@ -6,6 +6,7 @@
     "title": "How To Make Parallel API calls in JSPython",
     "contentUrl": "2022-10-09_how-to-make-parallel-api-calls-in-jspython.html",
     "excerpt": {
+      "description": "A tutorial that demonstrate how you can make a parallel API calls with JSPython in WORKSHEETS Data Studio.",
       "text": "A tutorial that demonstrate how you can make a parallel API calls with JSPython in WORKSHEETS Data Studio. Making parallel calls will reduce the latency and improve the performance of your solution"
     },
     "author": 1,
@@ -19,6 +20,7 @@
     "title": "Online SQL Client for low code data management",
     "contentUrl": "2022-07-31_online-sql-client-for-low-code-data-management.html",
     "excerpt": {
+      "description": "Online SQL client is a core part of WORKSHEETS Data Studio - our low code data management platform.",
       "text": "Online SQL client is a core part of WORKSHEETS Data Studio - our low code data management platform. Because keeping your data in the database is a fundamental part of any data-centric IT solution"
     },
     "author": 1,
@@ -58,6 +60,7 @@
     "title": "Import stock data from Alpha Vantage into SQL database",
     "contentUrl": "2022-04-09_import-stock-data-from-alpha-vantage-into-sql-database.html",
     "excerpt": {
+      "description": "How to import Alpha Vantage stock data into SQL, transform it, and schedule daily updates.",
       "text": "A tutorial on how you can import historical stock data from Alpha Vantage api into the SQL database. Transform raw data into a readable data format, ready to be stored to the database or exported in to the Excel. Then we will setup a Scheduled Task to run this daily"
     },
     "author": 1,
@@ -71,6 +74,7 @@
     "title": "Why we introduced our new coding language - JSPython?",
     "contentUrl": "2021-08-06_why-we-introduced-our-new-coding-language-JSPython.html",
     "excerpt": {
+      "description": "An article explaining what we created JSPython and how you can leverage",
       "text": "JSPython is a python-like syntax interpreter implemented with javascript that runs entirely in the web browser and/or in the NodeJS environment. It does not transpile/compile your code into JavaScript, instead, it provides an interactive interpreter that reads Python-like code and carries out its instructions. With JSPython you should be able to safely interact with any JavaScript libraries or API’s with the popular Python-like syntax."
     },
     "author": 1,
@@ -89,6 +93,7 @@
     "title": "What Is Data Engineering and Do You Need It?",
     "contentUrl": "2021-08-02_what-is-data-engineering-and-do-you-need-it.html",
     "excerpt": {
+      "description": " What is Data Engineering and what role does it play in business.",
       "text": "Data is a valuable resource for any kind of business, it needs to be organized in a way that can be used to make trustworthy business decisions. And Data Engineering plays a vital role in any business. Find out what data engineering is and if it’s the right choice for you. Create database applications with Worksheet Systems to get started."
     },
     "author": 2,
@@ -102,6 +107,7 @@
     "title": "Worksheet Systems - low code data management platform",
     "contentUrl": "2021-06-06_low-code-data-management-platform.html",
     "excerpt": {
+      "description": "Introduction to the Low Code Data Management with Worksheet Systems",
       "text": "Quite often, custom software teams can’t cope  with ever changing requirements. As a result, business users (usually tech savvy) turn to Excel, some bits of Python and SQL in order to automate and improve their data management workflows. With respect to the business users we worked with, most of them are super smart and intelligent people, they don’t know how to write maintainable, well architected, robust and scalable software. That is why their excel “systems” always fall short. And over time, these “systems” become unmaintainable, unreliable and often do not accurately produce vital figures. The solution to the problem is a SQL centric low code data management platform that allows business users and IT professionals to rapidly iterate and produce custom solutions in a streamlined and scalable way."
     },
     "author": 1,
@@ -116,6 +122,7 @@
     "title": "Five reasons to migrate your Excel workbooks into a relational database",
     "contentUrl": "2017-03-09_five-reasons-migrate-excel-workbooks-relational-database.html",
     "excerpt": {
+      "description": "Main five reasons why you should switch from excel workbook to the relational SQL databases",
       "text": "One simple way to improve your business’ efficiency is to migrate from Excel into a fully functioning online relational database system. If you think your business could be more streamlined, this article, listing the top five reasons for migrating from Excel to a database, could just be the thing you’re looking for. Scalability.Ok, so an Excel workbook was a quick and easy way to get started. It allowed you to store your product details, sales inventory, customer information or..."
     },
     "author": 1,
@@ -136,6 +143,7 @@
     "contentUrl": "2016-10-06_take-control-data-locked-spreadsheets.html",
     "excerpt": {
       "img": "",
+      "description": "How to take control on data locked in the spreadsheet",
       "text": "Most businesses rely on Excel to track, manage, and share their data. It’s easy to use, everybody understands it, and everyone has access to it. So far so good, but what if we told you that 94% of spreadsheets contain errors? A study carried out by researchers at Tuck Business School found exactly that. Their research showed that more than 9 out of every 10 spreadsheets had at least one serious error[i], and sometimes a document had multiple errors. 94% Error..."
     },
     "author": 1,
@@ -156,6 +164,7 @@
     "contentUrl": "2016-02-29_cloud-data-storage-solution-at-your-service.html",
     "excerpt": {
       "img": "",
+      "description": "An article on cloud data storage solutions, at your service and how you can benefit from it",
       "text": "It wasn’t too many years ago that ‘the cloud’ was purely a meteorological term. Nowadays it has been absorbed by a multitude of industries. The technical basis in which it is used may differ, but fundamentally, the cloud is a way to harness computing power on networked servers that can do the number-crunching and service delivery remotely, rather than having silicon chips and circuit boards sitting woefully under your desk or in your server room. Having powerful systems working on your..."
     },
     "author": 1,
@@ -170,6 +179,7 @@
     "contentUrl": "2016-02-29_alternative-spreadsheet-program.html",
     "excerpt": {
       "img": "",
+      "description": "An article about alternative spreadsheet program, in the cloud",
       "text": "Is Excel right database solution? The biggest player in the world of spreadsheets is still Microsoft Excel. Ever since it first emerged on the Macintosh (yes, Apple’s Macintosh) in 1985 and its first appearance on the Windows platform just two years later, Excel has become the go-to package when it comes to number crunching. Despite the various pretenders to throne that have emerged since, Excel has taken its place at the top of the rows and columns when it comes to data..."
     },
     "author": 1,
@@ -184,6 +194,7 @@
     "contentUrl": "2016-01-21_spreadsheet-programs-explored-excel-google-sheets-worksheet-systems.html",
     "excerpt": {
       "img": "assets/img/posts/google-sheets-vs-worksheet-systems-848x270.jpg",
+      "description": "A comparison of Excel, Google sheets and  Worksheet Systems App",
       "text": "What are you looking for in spreadsheet programs? Spreadsheets have become an integral part in today’s corporate climate. They are often considered a short-term solution to fill the gaps that exist between companies needs and systems’ capabilities. In reality, spreadsheet programs are embedded in business processes and used for many years. Therefore, effective use of spreadsheets have become a key focus for enhancing compliance. For a long time, Excel had the world of spreadsheet all to its self and it is still the widely..."
     },
     "author": 1,
@@ -203,6 +214,7 @@
     "contentUrl": "2016-01-14_data-management-tool-is-ms-access-right-tool-for-your-business.html",
     "excerpt": {
       "img": "assets/img/posts/ms-access-vs-worksheet-848x270.jpg",
+      "description": "Comparison between MS Access and Worksheet Systems as a business app",
       "text": "While enthusiasm drives your business, it’s your data that makes it successful. Deciding what database engine is most suited to the project in hand is the pillar for success.  Whether you are a business-owner, freelance developer or managing IT resources, choosing the right data management tool is not easy. Databases are management solutions where you can collect, store and access data. Choosing the right tool will come down to your requirements, budget and time allocated for your project. In this article the benefits..."
     },
     "author": 1,
@@ -217,7 +229,8 @@
     "contentUrl": "2015-12-11_is-excel-right-for-your-business-data.html",
     "excerpt": {
       "img": "assets/img/posts/small2-848x270.jpg",
-      "text": "There’s no doubt about it – Excel is everywhere. Used by millions of individual and businesses, the spreadsheet software from Microsoft has been used for everything from to-do lists and project planning, to financial calculations, managing inventory, and much, much more. In fact, if you can think of a business or personal task that uses data, someone, somewhere, has probably used Excel to do it. Jack of All Trades – Master of None?? Despite its versatility, Excel has its drawbacks, many of which stem from users trying to use it for functions it is not suitable for. While it is true that Excel is great for manipulating data, it is still unsuitable for many data tasks, especially in businesses that need to collaborate effectively. These shortcomings have been highlighted by the recent explosion in popularity of cloud services, and the resulting impact on current business. As a tool to share and collaborate data it has a number of shortcomings, and in an age of digital crime its lack of security features can be a significant problem."
+      "description": "Some thought on Excel and is it Excel Right for Your Business Data",
+      "text": "There’s no doubt about it – Excel is everywhere. Used by millions of individuals and businesses, the spreadsheet software from Microsoft has been used for everything from to-do lists and project planning, to financial calculations, managing inventory, and much, much more. In fact, if you can think of a business or personal task that uses data, someone, somewhere, has probably used Excel to do it. Jack of All Trades – Master of None?? Despite its versatility, Excel has its drawbacks, many of which stem from users trying to use it for functions it is not suitable for. While it is true that Excel is great for manipulating data, it is still unsuitable for many data tasks, especially in businesses that need to collaborate effectively. These shortcomings have been highlighted by the recent explosion in popularity of cloud services, and the resulting impact on current business. As a tool to share and collaborate data it has a number of shortcomings, and in an age of digital crime its lack of security features can be a significant problem."
     },
     "author": 1,
     "categories": [485, 358],
@@ -231,6 +244,7 @@
     "contentUrl": "2015-11-30_introducing-worksheet-systems.html",
     "excerpt": {
       "img": "assets/img/posts/banner3.jpg",
+      "description": "Introducing Worksheet Systems - original story. The very first version",
       "text": "Today we are proud to announce the launch of Worksheet Systems, a cloud-based data platform that allows businesses to manage and share their data effectively. Why did we create Worksheet Systems? Every business has unique data that it needs to work with to provide its services, support its employees, and inform its customers, yet not all businesses have access to software solutions that allow them to manage and use that data effectively and securely. In our experience, many businesses struggle to manage and use their data effectively to support their employees and customers. Popular data tools, such as Microsoft Excel, lack the data structure, permissioning, and security features necessary to provide an effective data solution."
     },
     "author": 1,
