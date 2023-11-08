@@ -32,7 +32,7 @@
 		"defaultCodeFile": "?file=home!index.dcml",
 		"imageUrl": "assets/img/examples/TimeseriesChart.png",
 		"icon": null,
-		"excerpt": "Timesearies chart loaded from AlphaVantage (https://www.alphavantage.co/)",
+		"excerpt": "Real-time time series chart from AlphaVantage (https://www.alphavantage.co/) data loaded into both chart and data grid, providing real-time data updates",
 		"isCloneAllowed": true
 	},
 	{
@@ -50,7 +50,7 @@
 		"defaultCodeFile": "?file=index.dcml",
 		"imageUrl": "assets/img/examples/customCRM.png",
 		"icon": null,
-		"excerpt": "A collection of JSPython code examples in one project",
+		"excerpt": "Explore JSPython code samples in one project, featuring best practices, approaches, and how-to examples. Including Worksheets Runtime internal functions",
 		"isCloneAllowed": true
 	}	
 ]
