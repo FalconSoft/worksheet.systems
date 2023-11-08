@@ -1,21 +1,21 @@
 [{
   "id": 485,
-  "description": "Explanatory posts what describes excel related issues and showing why Worksheet Systems - online database is better software that excel",
+  "description": "Explanatory posts that describe excel related issues and show why Worksheet Systems - online database is better software than excel",
   "name": "Excel issues",
   "slug": "excel-issues"
 }, {
   "id": 1,
-  "description": null,
+  "description": "Stay informed with Worksheet Systems team's latest updates and news, including new releases and feature introductions.",
   "name": "News",
   "slug": "news"
 }, {
   "id": 358,
-  "description": null,
+  "description": "Discover articles highlighting online database software solutions and how Worksheet Systems can assist in building them.",
   "name": "Online Database",
   "slug": "online-database"
 },{
   "id": 500,
-  "description": null,
+  "description": "Uncover Data Engineering best practices and techniques while harnessing the power of Worksheet Systems to supercharge your data engineering projects.",
   "name": "Data Engineering",
   "slug": "data-engineering"
 }]
