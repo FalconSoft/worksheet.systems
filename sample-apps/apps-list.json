@@ -14,7 +14,7 @@
 		"defaultCodeFile": "?file=home!index.dcml",
 		"imageUrl": "assets/img/examples/northwind.png",
 		"icon": null,
-		"excerpt": "Explore the Northwind App, built on the Worksheet Systems Low-Code Platform and featuring the classic Northwind database created by Microsoft to showcase their products.",
+		"excerpt": "Explore the Northwind App, built on the Worksheet Systems Low-Code Platform and featuring the classic Northwind database created by Microsoft.",
 		"isCloneAllowed": true
 	},
 	{
